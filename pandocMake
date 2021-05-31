@@ -1,0 +1,30 @@
+#!/bin/bash
+SRC=src
+OUTPUT=main.pdf
+
+# Metadata like title, author, date, font
+META=$SRC/meta.yaml
+# Bibtex file
+BIB=$SRC/references.bib
+# Latex preamble/package imports/custom commands
+PREAMBLE=$SRC/preamble.sty
+# Section directory
+SECTIONS=$SRC/sections
+
+# Section names (make sure to add them here and down below)
+INTRO=$SECTIONS/intro.md
+ARGUMENT=$SECTIONS/argument.md
+
+pandoc \
+  $(: metadata includes title, styling, etc) \
+  --metadata-file=$META \
+  $(: latex preamble) \
+  -H $PREAMBLE \
+  \
+  $(: add sections here in the order you want them) \
+  $INTRO \
+  $ARGUMENT \
+  \
+  $(: bibliography) \
+  -s --citeproc --bibliography=$BIB \
+  -o $OUTPUT
