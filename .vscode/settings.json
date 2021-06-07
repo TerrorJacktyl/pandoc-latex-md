@@ -1,0 +1,8 @@
+{
+  // Grammarly settings
+  "grammarly.autoActivate": true,
+  "grammarly.domain": "academic",
+  "grammarly.audience": "knowledgeable",
+  "grammarly.emotions": ["analytical", "neutral"],
+  "grammarly.dialect": "australian"
+}
