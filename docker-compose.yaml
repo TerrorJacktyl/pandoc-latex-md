@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  pandoc-workspace:
+    build:
+      context: .
+      args:
+        - WORK_DIRECTORY=${WORK_DIRECTORY}
+        - ARCHITECTURE=${ARCHITECTURE}
+    container_name: pandoc_workspace
+    volumes:
+      - "./:${WORK_DIRECTORY}"
+    command: >
+      bash -c "cd ${WORK_DIRECTORY} && ./pandocMake"
